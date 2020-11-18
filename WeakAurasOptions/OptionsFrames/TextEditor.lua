@@ -155,7 +155,6 @@ local function ConstructTextEditor(frame)
   group:SetLayout("fill")
 
   local editor = AceGUI:Create("MultiLineEditBox")
-  
   editor:SetWidth(400)
   editor.button:Hide()
   local fontPath = SharedMedia:Fetch("font", "Fira Mono Medium")
