@@ -155,15 +155,17 @@ local function ConstructTextEditor(frame)
   group:SetLayout("fill")
 
   local editor = AceGUI:Create("MultiLineEditBox")
+  
   editor:SetWidth(400)
   editor.button:Hide()
   local fontPath = SharedMedia:Fetch("font", "Fira Mono Medium")
   if (fontPath) then
-    local uiScaleValue, _, _, _, _, _, _ = GetCVarInfo(uiScale)
+    local Value, _, _, _, _, _, _ = GetCVarInfo("uiScale")
+    local uiScaleValue = tonumber(Value)
     if uiScaleValue >= 0.64 then
-      editor.editBox:SetFont(fontPath, 16)
+      editor.editBox:SetFont(fontPath, 12)
     else
-      editor.editBox:SetFont(fontPath, 20)
+      editor.editBox:SetFont(fontPath, 24)
     end
   end
   group:AddChild(editor)
