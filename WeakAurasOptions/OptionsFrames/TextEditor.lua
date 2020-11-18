@@ -159,7 +159,12 @@ local function ConstructTextEditor(frame)
   editor.button:Hide()
   local fontPath = SharedMedia:Fetch("font", "Fira Mono Medium")
   if (fontPath) then
-    editor.editBox:SetFont(fontPath, 12)
+    local uiScaleValue, _, _, _, _, _, _ = GetCVarInfo(uiScale)
+    if uiScaleValue >= 0.64 then
+      editor.editBox:SetFont(fontPath, 16)
+    else
+      editor.editBox:SetFont(fontPath, 20)
+    end
   end
   group:AddChild(editor)
   editor.frame:SetClipsChildren(true)
